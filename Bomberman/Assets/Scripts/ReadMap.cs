@@ -25,16 +25,16 @@ public class ReadMap : MonoBehaviour
 
         foreach (string line in lines)
         {
-            offset += 2;
+            offset += 1;
             for (int i = 0; i < line.Length; i++)
             {
                 if (line[i] == 'X')
                 {
-                    Instantiate(pared, new Vector3(i * 2.0f, offset + 0, 0), Quaternion.identity);
+                    Instantiate(pared, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
                 else
                 {
-                    Instantiate(vacio, new Vector3(i * 2.0f, offset + 0, 0), Quaternion.identity);
+                    Instantiate(vacio, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
             }
         }
