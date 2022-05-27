@@ -4,26 +4,56 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private Rigidbody2D body;
+    private Rigidbody2D rb;
 
-    private float horizontal;
-    private float vertical;
+    private Vector2 direction = Vector2.down;
 
-    [SerializeField] private float runSpeed = 10.0f;
+    [SerializeField] private float speed = 5f;
 
-    void Start()
+    [SerializeField] private KeyCode inputUp = KeyCode.W;
+    [SerializeField] private KeyCode inputDown = KeyCode.S;
+    [SerializeField] private KeyCode inputRight = KeyCode.D;
+    [SerializeField] private KeyCode inputLeft = KeyCode.A;
+
+    private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey(inputUp))
+        {
+            SetDirection(Vector2.up);
+        }
+        else if (Input.GetKey(inputDown))
+        {
+            SetDirection(Vector2.down);
+        }
+        else if (Input.GetKey(inputRight))
+        {
+            SetDirection(Vector2.right);
+        }
+        else if (Input.GetKey(inputLeft))
+        {
+            SetDirection(Vector2.left);
+        }
+        else
+        {
+            SetDirection(Vector2.zero);
+        }
     }
 
     private void FixedUpdate()
     {
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        Vector2 position = rb.position;
+        Vector2 translation = direction * speed * Time.fixedDeltaTime;
+
+        rb.MovePosition(position + translation);
+    }
+
+    private void SetDirection(Vector2 newDirection)
+    {
+        direction = newDirection;
     }
 }
