@@ -167,7 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pared: {fileID: 976619905875304804, guid: 8083af82e461c5d4d90ca561a5a9d1a3, type: 3}
-  vacio: {fileID: 1891838408700709982, guid: 4a91b726922a4004bab445f06ef03a7f, type: 3}
+  caminable: {fileID: 5229584972450231088, guid: 3ae83128d369f9e488e7243ff8f1aa92, type: 3}
+  destruible: {fileID: 1891838408700709982, guid: 4a91b726922a4004bab445f06ef03a7f, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +263,7 @@ GameObject:
   - component: {fileID: 1236462954}
   - component: {fileID: 1236462953}
   - component: {fileID: 1236462956}
+  - component: {fileID: 1236462958}
   - component: {fileID: 1236462955}
   - component: {fileID: 1236462957}
   m_Layer: 0
@@ -310,7 +312,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -400,3 +402,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1236462958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236462952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d62fc68e158bb6f469bff906b0062139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 3342518550065256751, guid: 45bdec14899cc714690f329e42df19fb, type: 3}
+  inputKey: 32
+  bombFuseTime: 3
+  bombAmount: 1

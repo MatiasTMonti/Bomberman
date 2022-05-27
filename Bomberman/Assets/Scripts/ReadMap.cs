@@ -7,7 +7,8 @@ using UnityEngine;
 public class ReadMap : MonoBehaviour
 {
     [SerializeField] private GameObject pared;
-    [SerializeField] private GameObject vacio;
+    [SerializeField] private GameObject caminable;
+    [SerializeField] private GameObject destruible;
 
     private int offset = 0;
 
@@ -32,9 +33,13 @@ public class ReadMap : MonoBehaviour
                 {
                     Instantiate(pared, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
+                else if (line[i] == 'D')
+                {
+                    Instantiate(caminable, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
+                }
                 else
                 {
-                    Instantiate(vacio, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
+                    Instantiate(destruible, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
             }
         }
