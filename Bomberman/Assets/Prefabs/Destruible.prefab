@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1891838408700709952}
   - component: {fileID: 1891838408700709953}
-  m_Layer: 0
-  m_Name: Vacio
+  m_Layer: 6
+  m_Name: Destruible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

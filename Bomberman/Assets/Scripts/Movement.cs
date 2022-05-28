@@ -15,32 +15,39 @@ public class Movement : MonoBehaviour
     [SerializeField] private KeyCode inputRight = KeyCode.D;
     [SerializeField] private KeyCode inputLeft = KeyCode.A;
 
+    [SerializeField] private AnimatedSpriteRenderer spriteRendererUp;
+    [SerializeField] private AnimatedSpriteRenderer spriteRendererDown;
+    [SerializeField] private AnimatedSpriteRenderer spriteRendererRight;
+    [SerializeField] private AnimatedSpriteRenderer spriteRendererLeft;
+    [SerializeField] private AnimatedSpriteRenderer activeSpriteRenderer;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        activeSpriteRenderer = spriteRendererDown;
     }
 
     private void Update()
     {
         if (Input.GetKey(inputUp))
         {
-            SetDirection(Vector2.up);
+            SetDirection(Vector2.up, spriteRendererUp);
         }
         else if (Input.GetKey(inputDown))
         {
-            SetDirection(Vector2.down);
+            SetDirection(Vector2.down, spriteRendererDown);
         }
         else if (Input.GetKey(inputRight))
         {
-            SetDirection(Vector2.right);
+            SetDirection(Vector2.right, spriteRendererRight);
         }
         else if (Input.GetKey(inputLeft))
         {
-            SetDirection(Vector2.left);
+            SetDirection(Vector2.left, spriteRendererLeft);
         }
         else
         {
-            SetDirection(Vector2.zero);
+            SetDirection(Vector2.zero, activeSpriteRenderer);
         }
     }
 
@@ -52,8 +59,16 @@ public class Movement : MonoBehaviour
         rb.MovePosition(position + translation);
     }
 
-    private void SetDirection(Vector2 newDirection)
+    private void SetDirection(Vector2 newDirection, AnimatedSpriteRenderer spriteRenderer)
     {
         direction = newDirection;
+
+        spriteRendererUp.enabled = spriteRenderer == spriteRendererUp;
+        spriteRendererDown.enabled = spriteRenderer == spriteRendererDown;
+        spriteRendererRight.enabled = spriteRenderer == spriteRendererRight;
+        spriteRendererLeft.enabled = spriteRenderer == spriteRendererLeft;
+
+        activeSpriteRenderer = spriteRenderer;
+        activeSpriteRenderer.idle = direction == Vector2.zero;
     }
 }
