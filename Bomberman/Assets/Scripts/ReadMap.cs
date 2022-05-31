@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,9 +13,6 @@ public class ReadMap : MonoBehaviour
     private Camera cam;
 
     private int offset = 0;
-
-    private int posX;
-    private int posY;
 
     private void Start()
     {
@@ -42,16 +38,16 @@ public class ReadMap : MonoBehaviour
                 {
                     Instantiate(pared, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
-                else if (line[i] == 'D')
+                else if (line[i] == 'C')
                 {
                     Instantiate(caminable, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
                 else if (line[i] == 'S')
                 {
-                    Instantiate(player, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
+                    Instantiate(player, new Vector3(i * 1.0f, offset + 0.1f, 0), Quaternion.identity);
                     Instantiate(caminable, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
-                else
+                else if(line[i] == 'D')
                 {
                     Instantiate(destruible, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
