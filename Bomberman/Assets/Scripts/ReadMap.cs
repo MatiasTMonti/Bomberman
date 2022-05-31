@@ -9,11 +9,18 @@ public class ReadMap : MonoBehaviour
     [SerializeField] private GameObject pared;
     [SerializeField] private GameObject caminable;
     [SerializeField] private GameObject destruible;
+    [SerializeField] private GameObject player;
+
+    private Camera cam;
 
     private int offset = 0;
 
+    private int posX;
+    private int posY;
+
     private void Start()
     {
+        cam = Camera.main;
         ReadFileMap();
     }
 
@@ -26,6 +33,8 @@ public class ReadMap : MonoBehaviour
 
         foreach (string line in lines)
         {
+            cam.transform.position = new Vector3(lines.Count() / 2, line.Length / 2, lines.Count() < line.Length? -lines.Count() : -line.Length);
+
             offset += 1;
             for (int i = 0; i < line.Length; i++)
             {
@@ -35,6 +44,11 @@ public class ReadMap : MonoBehaviour
                 }
                 else if (line[i] == 'D')
                 {
+                    Instantiate(caminable, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
+                }
+                else if (line[i] == 'S')
+                {
+                    Instantiate(player, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                     Instantiate(caminable, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
                 else
