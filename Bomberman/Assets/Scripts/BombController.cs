@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BombController : MonoBehaviour
@@ -80,10 +79,10 @@ public class BombController : MonoBehaviour
         //Aseguro el lado y la posicion en cual explota
         position += direction;
 
-        //Reviso que la layermask sea la indicada y pueda explotar en caso de que no retorna
+        //Reviso que la layermask sea la indicada y pueda explotar, en caso de que no retorna
         if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionLayerMask))
         {
-            //ClearDestructible(position);
+            ClearDestructible(position);
             return;
         }
 
@@ -105,11 +104,16 @@ public class BombController : MonoBehaviour
         }
     }
 
-    //private void ClearDestructible(Vector2 pos)
-    //{
-    //    if (destructible != null)
-    //    {
-    //        Instantiate(destructiblePrefab, pos, Quaternion.identity);
-    //    }
-    //}
+    private void ClearDestructible(Vector2 pos)
+    {
+        GameObject tile = destructible;
+        Vector3 cell = destructible.transform.TransformDirection(pos);
+        tile.transform.position = new Vector3(cell.x, cell.y, cell.z);
+
+        if (tile != null)
+        {
+            Instantiate(destructiblePrefab, pos, Quaternion.identity);
+            destructible.transform.position = tile.transform.position;
+        }
+    }
 }

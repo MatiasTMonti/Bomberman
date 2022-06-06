@@ -135,7 +135,7 @@ MonoBehaviour:
   explosionDuration: 1
   explosionRadius: 1
   destructible: {fileID: 1891838408700709982, guid: 4a91b726922a4004bab445f06ef03a7f, type: 3}
-  destructiblePrefab: {fileID: -2525334068144179387, guid: 4a91b726922a4004bab445f06ef03a7f, type: 3}
+  destructiblePrefab: {fileID: 3505394238105392535, guid: 69df98317e570bf4191450ca13b6b023, type: 3}
 --- !u!50 &1783999215277594354
 Rigidbody2D:
   serializedVersion: 4
