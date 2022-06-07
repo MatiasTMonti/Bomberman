@@ -106,14 +106,14 @@ public class BombController : MonoBehaviour
 
     private void ClearDestructible(Vector2 pos)
     {
-        GameObject tile = destructible;
-        Vector3 cell = destructible.transform.TransformDirection(pos);
-        tile.transform.position = new Vector3(cell.x, cell.y, cell.z);
+        //GameObject tile = destructible;
+        //Vector3 cell = destructible.transform.TransformDirection(pos);
+        //tile.transform.position = new Vector3(cell.x, cell.y, cell.z);
 
-        if (tile != null)
-        {
+        //if (tile != null)
+        //{
             Instantiate(destructiblePrefab, pos, Quaternion.identity);
-            destructible.transform.position = tile.transform.position;
-        }
+        //    destructible.transform.position = tile.transform.position;
+        //}
     }
 }
