@@ -8,6 +8,7 @@ public class Scene : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
     }
 
     public void QuitGame()
