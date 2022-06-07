@@ -19,7 +19,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private AnimatedSpriteRenderer spriteRendererDown;
     [SerializeField] private AnimatedSpriteRenderer spriteRendererRight;
     [SerializeField] private AnimatedSpriteRenderer spriteRendererLeft;
-    [SerializeField] private AnimatedSpriteRenderer activeSpriteRenderer;
+    [SerializeField] private AnimatedSpriteRenderer spriteRendererDeath;
+
+    private AnimatedSpriteRenderer activeSpriteRenderer;
 
     private void Awake()
     {
@@ -70,5 +72,32 @@ public class Movement : MonoBehaviour
 
         activeSpriteRenderer = spriteRenderer;
         activeSpriteRenderer.idle = direction == Vector2.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Explosion"))
+        {
+            DeathSequence();
+        }
+    }
+
+    private void DeathSequence()
+    {
+        enabled = false;
+        GetComponent<BombController>().enabled = false;
+
+        spriteRendererUp.enabled = false;
+        spriteRendererDown.enabled = false;
+        spriteRendererRight.enabled = false;
+        spriteRendererLeft.enabled = false;
+        spriteRendererDeath.enabled = true;
+
+        Invoke(nameof(OnDeathSequenceEnded), 1.25f);
+    }
+
+    private void OnDeathSequenceEnded()
+    {
+        gameObject.SetActive(false);
     }
 }
