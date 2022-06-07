@@ -50,6 +50,7 @@ public class ReadMap : MonoBehaviour
                 else if(line[i] == 'D')
                 {
                     Instantiate(destruible, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
+                    Instantiate(caminable, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
             }
         }
