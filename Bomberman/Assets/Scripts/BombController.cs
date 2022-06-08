@@ -8,7 +8,7 @@ public class BombController : MonoBehaviour
 
     [SerializeField] private KeyCode inputKey = KeyCode.Space;
     [SerializeField] private float bombFuseTime = 3f;
-    [SerializeField] private int bombAmount = 1;
+    public int bombAmount = 1;
 
     private int bombRemaining;
 
@@ -16,7 +16,7 @@ public class BombController : MonoBehaviour
     [SerializeField] private Explosion explosionPrefab;
     [SerializeField] private LayerMask explosionLayerMask;
     [SerializeField] private float explosionDuration = 1f;
-    [SerializeField] private int explosionRadius = 1;
+    public int explosionRadius = 1;
 
     [Header("Destructible")]
     [SerializeField] private GameObject destructible;
@@ -106,14 +106,12 @@ public class BombController : MonoBehaviour
 
     private void ClearDestructible(Vector2 pos)
     {
-        //GameObject tile = destructible;
-        //Vector3 cell = destructible.transform.TransformDirection(pos);
-        //tile.transform.position = new Vector3(cell.x, cell.y, cell.z);
+        Instantiate(destructiblePrefab, pos, Quaternion.identity);
+    }
 
-        //if (tile != null)
-        //{
-            Instantiate(destructiblePrefab, pos, Quaternion.identity);
-        //    destructible.transform.position = tile.transform.position;
-        //}
+    public void AddBomb()
+    {
+        bombAmount++;
+        bombRemaining++;
     }
 }

@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
 
     private Vector2 direction = Vector2.down;
 
-    [SerializeField] private float speed = 5f;
+    public float speed = 5f;
 
     [SerializeField] private KeyCode inputUp = KeyCode.W;
     [SerializeField] private KeyCode inputDown = KeyCode.S;
