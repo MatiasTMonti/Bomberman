@@ -19,7 +19,6 @@ public class BombController : MonoBehaviour
     public int explosionRadius = 1;
 
     [Header("Destructible")]
-    [SerializeField] private GameObject destructible;
     [SerializeField] private Destructible destructiblePrefab;
 
     private void OnEnable()
@@ -72,7 +71,7 @@ public class BombController : MonoBehaviour
 
     private void Explode(Vector2 position, Vector2 direction, int length)
     {
-        //Me aseguro que pueda explotar hacia los costados
+        //Me aseguro que no explote mas del limite
         if (length <= 0)
             return;
 
@@ -89,10 +88,10 @@ public class BombController : MonoBehaviour
         //Instancio la explosion en la ultima posicion de la bomba
         Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
         explosion.SetActiveRenderer(length > 1 ? explosion.middle : explosion.end);     //Si ya paso la primera animacion entonces va la segunda
-        explosion.SetDirection(direction);
+        explosion.SetDirection(direction);      //Sin esto la animacion aparece en cualquier lado
         explosion.DestroyAfter(explosionDuration);
 
-        Explode(position, direction, length - 1);
+        Explode(position, direction, length - 1); //Sin esto se rompe la explosion, cuando upgradeo
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -104,11 +103,13 @@ public class BombController : MonoBehaviour
         }
     }
 
+    //Instancio el destructor de la bomba
     private void ClearDestructible(Vector2 pos)
     {
         Instantiate(destructiblePrefab, pos, Quaternion.identity);
     }
 
+    //Para no romper el upgrade
     public void AddBomb()
     {
         bombAmount++;

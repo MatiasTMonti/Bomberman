@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
@@ -8,6 +6,7 @@ public class Explosion : MonoBehaviour
     public AnimatedSpriteRenderer middle;
     public AnimatedSpriteRenderer end;
 
+    //Animacion
     public void SetActiveRenderer(AnimatedSpriteRenderer renderer)
     {
         start.enabled = renderer == start;
@@ -15,12 +14,14 @@ public class Explosion : MonoBehaviour
         end.enabled = renderer == end;
     }
 
+    //Seteo la direccion en la cual explota la bomba
     public void SetDirection(Vector2 direction)
     {
         float angle = Mathf.Atan2(direction.y, direction.x);
         transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
     }
 
+    //Destruyo la bomba despues de ciertos segundos
     public void DestroyAfter(float seconds)
     {
         Destroy(gameObject, seconds);

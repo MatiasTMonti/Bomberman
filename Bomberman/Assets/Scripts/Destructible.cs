@@ -10,11 +10,13 @@ public class Destructible : MonoBehaviour
 
     private void Start()
     {
+        //Destruyo el bloque despues de ciertos segundos
         Destroy(gameObject, destructionTime);
     }
 
     private void OnDestroy()
     {
+        //Spawneo el item si esta entre los valores esperados
         if (spawneableItems.Length > 0 && Random.value < itemSpawnChance)
         {
             int randomIndex = Random.Range(0, spawneableItems.Length);

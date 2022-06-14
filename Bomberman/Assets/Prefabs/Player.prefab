@@ -350,7 +350,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 4105455241530701441, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  m_Sprite: {fileID: 1876993990684628349, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -373,12 +373,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7b7028f5b5912458166fd59fdd251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleSprite: {fileID: 4105455241530701441, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  idleSprite: {fileID: 1876993990684628349, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
   animationSprite:
-  - {fileID: 4105455241530701441, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
-  - {fileID: 1227387053424607353, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
-  - {fileID: 4228603840019539244, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
-  - {fileID: -9177389288040520022, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  - {fileID: 1876993990684628349, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  - {fileID: 7320275842084746454, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  - {fileID: 4794426086629081376, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  - {fileID: -7472294743960569232, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
   animationTime: 0.166
   loop: 1
   idle: 1
@@ -558,7 +558,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1876993990684628349, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  m_Sprite: {fileID: 4105455241530701441, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -581,12 +581,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7b7028f5b5912458166fd59fdd251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleSprite: {fileID: 1876993990684628349, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  idleSprite: {fileID: 4105455241530701441, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
   animationSprite:
-  - {fileID: 1876993990684628349, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
-  - {fileID: 7320275842084746454, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
-  - {fileID: 4794426086629081376, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
-  - {fileID: -7472294743960569232, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  - {fileID: 4105455241530701441, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  - {fileID: 1227387053424607353, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  - {fileID: 4228603840019539244, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
+  - {fileID: -9177389288040520022, guid: de001e5f812d67449b9a52b39345e6ed, type: 3}
   animationTime: 0.166
   loop: 1
   idle: 1
