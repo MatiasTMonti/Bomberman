@@ -126,6 +126,9 @@ MonoBehaviour:
   - {fileID: 6190578581804398490, guid: 75de8416f46372449a91a2436e06dc9b, type: 3}
   - {fileID: 4299867444184371568, guid: 8f36f8d297236b04b97cf212e753329f, type: 3}
   - {fileID: 5420942911059867245, guid: 45eebe85d95d5dd4999306d3d6a9ed4b, type: 3}
+  doorSpawnChance: 0.2
+  spawneableDoor:
+  - {fileID: 1891838408700709982, guid: 4a91b726922a4004bab445f06ef03a7f, type: 3}
 --- !u!50 &-8556817320433787372
 Rigidbody2D:
   serializedVersion: 4

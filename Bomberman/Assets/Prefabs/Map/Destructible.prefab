@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6ec1f0f0e0cb5449aac5a181e0c512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorSpawnChance: 0.2
+  spawneableDoor: {fileID: 4288571985947025638, guid: b53b8f929d3ef074f865808bc986e496, type: 3}
 --- !u!61 &100825911
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135,7 +137,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.7, y: 3.7}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
