@@ -9,6 +9,7 @@ public class ReadMap : MonoBehaviour
     [SerializeField] private GameObject caminable;
     [SerializeField] private GameObject destruible;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject enemi;
 
     private Camera cam;
 
@@ -45,6 +46,11 @@ public class ReadMap : MonoBehaviour
                 else if (line[i] == 'S')
                 {
                     Instantiate(player, new Vector3(i * 1.0f, offset + 0.1f, 0), Quaternion.identity);
+                    Instantiate(caminable, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
+                }
+                else if (line[i] == 'E')
+                {
+                    Instantiate(enemi, new Vector3(i * 1.0f, offset + 0.1f, 0), Quaternion.identity);
                     Instantiate(caminable, new Vector3(i * 1.0f, offset + 0, 0), Quaternion.identity);
                 }
                 else if(line[i] == 'D')

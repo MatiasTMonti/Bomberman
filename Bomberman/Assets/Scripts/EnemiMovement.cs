@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class EnemiMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public Transform movePoint;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Transform movePoint;
 
     private int rnd = 0;
+    private float timer = 0;
 
     [SerializeField] private LayerMask layer;
 
@@ -18,65 +19,52 @@ public class EnemiMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
         rnd = Random.Range(0, 4);
 
+        EnemiesMovement();
+    }
+
+    private void EnemiesMovement()
+    {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
         {
-            switch (rnd)
+            if (timer > 0.2f)
             {
-                case 0:
-                    if (!Physics2D.OverlapCircle(Vector2.up, .2f, layer))
-                    {
-                        movePoint.Translate(Vector2.up);
-                    }
-                    break;
-                case 1:
-                    if (!Physics2D.OverlapCircle(Vector2.down, .2f, layer))
-                    {
-                        movePoint.Translate(Vector2.down);
-                    }
-                    break;
-                case 2:
-                    if (!Physics2D.OverlapCircle(Vector2.right, .2f, layer))
-                    {
-                        movePoint.Translate(Vector2.right);
-                    }
-                    break;
-                case 3:
-                    if (!Physics2D.OverlapCircle(Vector2.left, .2f, layer))
-                    {
-                        movePoint.Translate(Vector2.left);
-                    }
-                    break;
-                default:
-                    break;
+                switch (rnd)
+                {
+                    case 0:
+                        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(1f, 0f, 0f), .2f, layer))
+                        {
+                            movePoint.position += new Vector3(1f, 0f, 0f);
+                        }
+                        break;
+                    case 1:
+                        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(-1f, 0f, 0f), .2f, layer))
+                        {
+                            movePoint.position += new Vector3(-1f, 0f, 0f);
+                        }
+                        break;
+                    case 2:
+                        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .2f, layer))
+                        {
+                            movePoint.position += new Vector3(0f, 1f, 0f);
+                        }
+                        break;
+                    case 3:
+                        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .2f, layer))
+                        {
+                            movePoint.position += new Vector3(0f, -1f, 0f);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                timer = 0;
             }
         }
     }
-
-    //private void MovePlayer()
-    //{
-    //    transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
-    //    if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
-    //    {
-    //        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
-    //        {
-    //            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .2f, layer))
-    //            {
-    //                movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-    //            }
-    //        }
-
-    //        if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
-    //        {
-    //            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .2f, layer))
-    //            {
-    //                movePoint.position += new Vector3(Input.GetAxisRaw("Vertical"), 0f, 0f);
-    //            }
-    //        }
-    //    }
-    //}
 }
