@@ -29,25 +29,28 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(inputUp))
+        if (Time.timeScale > 0)
         {
-            SetDirection(Vector2.up, spriteRendererUp);
-        }
-        else if (Input.GetKey(inputDown))
-        {
-            SetDirection(Vector2.down, spriteRendererDown);
-        }
-        else if (Input.GetKey(inputRight))
-        {
-            SetDirection(Vector2.right, spriteRendererRight);
-        }
-        else if (Input.GetKey(inputLeft))
-        {
-            SetDirection(Vector2.left, spriteRendererLeft);
-        }
-        else
-        {
-            SetDirection(Vector2.zero, activeSpriteRenderer);
+            if (Input.GetKey(inputUp))
+            {
+                SetDirection(Vector2.up, spriteRendererUp);
+            }
+            else if (Input.GetKey(inputDown))
+            {
+                SetDirection(Vector2.down, spriteRendererDown);
+            }
+            else if (Input.GetKey(inputRight))
+            {
+                SetDirection(Vector2.right, spriteRendererRight);
+            }
+            else if (Input.GetKey(inputLeft))
+            {
+                SetDirection(Vector2.left, spriteRendererLeft);
+            }
+            else
+            {
+                SetDirection(Vector2.zero, activeSpriteRenderer);
+            }
         }
     }
 

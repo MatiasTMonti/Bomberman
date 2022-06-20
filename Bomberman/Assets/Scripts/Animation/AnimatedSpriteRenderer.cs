@@ -31,7 +31,7 @@ public class AnimatedSpriteRenderer : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(NextFrame), animationTime, animationTime);
+        InvokeRepeating(nameof(NextFrame), animationTime * Time.deltaTime, animationTime);
     }
 
     private void NextFrame()

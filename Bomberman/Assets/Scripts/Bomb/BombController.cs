@@ -28,9 +28,12 @@ public class BombController : MonoBehaviour
 
     private void Update()
     {
-        if (bombRemaining > 0 && Input.GetKeyDown(inputKey))
+        if (Time.timeScale > 0)
         {
-            StartCoroutine(PlaceBomb());
+            if (bombRemaining > 0 && Input.GetKeyDown(inputKey))
+            {
+                StartCoroutine(PlaceBomb());
+            }
         }
     }
 
