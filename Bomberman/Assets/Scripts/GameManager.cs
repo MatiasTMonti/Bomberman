@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject spawneableDoor;
     private bool spawnDoor = false;
 
+    private int rnd = 0;
+
     private void OnEnable()
     {
         ParedDestruible.onBlockSpawn += Spawn;
@@ -27,10 +29,21 @@ public class GameManager : MonoBehaviour
     {
         count--;
 
+        rnd = Random.Range(0, 10);
+
         if (!spawnDoor)
         {
-            spawnDoor = true;
-            Instantiate(spawneableDoor, pos, Quaternion.identity);
+            if (rnd >= 8)
+            {
+                spawnDoor = true;
+                Instantiate(spawneableDoor, pos, Quaternion.identity);
+            }
+
+            if (count <= 0)
+            {
+                spawnDoor = true;
+                Instantiate(spawneableDoor, pos, Quaternion.identity);
+            }
         }
     }
 }
