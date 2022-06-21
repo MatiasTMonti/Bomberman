@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
 
     private int rnd = 0;
 
-    [SerializeField] private Gameover gameover;
+    [SerializeField] private Gameover gameoverLose;
+    [SerializeField] private Gameover gameoverWin;
 
     private void Update()
     {
         PlayerDie();
+        PlayerWin();
     }
 
     private void OnEnable()
@@ -59,7 +61,16 @@ public class GameManager : MonoBehaviour
         if (EnemiMovement.playerDie)
         {
             Time.timeScale = 0f;
-            gameover.Setup();
+            gameoverLose.Setup();
+        }
+    }
+
+    private void PlayerWin()
+    {
+        if (CollisionPlayer.playerWin)
+        {
+            Time.timeScale = 0f;
+            gameoverWin.Setup();
         }
     }
 }

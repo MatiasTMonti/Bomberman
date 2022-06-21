@@ -12,6 +12,7 @@ public class Scene : MonoBehaviour
 
     public void ChangeScene(string sceneName)
     {
+        CollisionPlayer.playerWin = false;
         EnemiMovement.playerDie = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
