@@ -10,10 +10,13 @@ public class EnemiMovement : MonoBehaviour
 
     [SerializeField] private LayerMask layer;
 
+    public static bool playerDie = false;
+
     // Start is called before the first frame update
     void Start()
     {
         movePoint.parent = null;
+        playerDie = false;
     }
 
     // Update is called once per frame
@@ -65,6 +68,20 @@ public class EnemiMovement : MonoBehaviour
 
                 timer = 0;
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Murio");
+            playerDie = true;
+        }
+
+        if (collision.gameObject.CompareTag("Explosion"))
+        {
+            Debug.Log("Destruido");
         }
     }
 }

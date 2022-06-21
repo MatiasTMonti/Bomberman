@@ -8,6 +8,13 @@ public class GameManager : MonoBehaviour
 
     private int rnd = 0;
 
+    [SerializeField] private Gameover gameover;
+
+    private void Update()
+    {
+        PlayerDie();
+    }
+
     private void OnEnable()
     {
         ParedDestruible.onBlockSpawn += Spawn;
@@ -44,6 +51,15 @@ public class GameManager : MonoBehaviour
                 spawnDoor = true;
                 Instantiate(spawneableDoor, pos, Quaternion.identity);
             }
+        }
+    }
+
+    private void PlayerDie()
+    {
+        if (EnemiMovement.playerDie)
+        {
+            Time.timeScale = 0f;
+            gameover.Setup();
         }
     }
 }

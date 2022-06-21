@@ -100,5 +100,7 @@ public class Movement : MonoBehaviour
     private void OnDeathSequenceEnded()
     {
         gameObject.SetActive(false);
+
+        EnemiMovement.playerDie = true;
     }
 }
