@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemiMovement : MonoBehaviour
+public class EnemiMovement : MonoBehaviour, IDestruible
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Transform movePoint;
@@ -81,7 +81,13 @@ public class EnemiMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Explosion"))
         {
+            Destruir();
             Debug.Log("Destruido");
         }
+    }
+
+    public void Destruir()
+    {
+        Destroy(gameObject);
     }
 }

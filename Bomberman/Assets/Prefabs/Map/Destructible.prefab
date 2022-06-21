@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1891838408700709952}
   - component: {fileID: 1891838408700709953}
-  - component: {fileID: -6622785741216141591}
   - component: {fileID: -48405169301740149}
+  - component: {fileID: -6622785741216141591}
   - component: {fileID: 100825911}
   m_Layer: 6
   m_Name: Destructible
@@ -85,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-48405169301740149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891838408700709982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6ec1f0f0e0cb5449aac5a181e0c512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &-6622785741216141591
 Rigidbody2D:
   serializedVersion: 4
@@ -106,18 +118,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &-48405169301740149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891838408700709982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6ec1f0f0e0cb5449aac5a181e0c512, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &100825911
 BoxCollider2D:
   m_ObjectHideFlags: 0
