@@ -182,7 +182,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: You left the temple
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -848,7 +848,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: MENU
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1092,7 +1092,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1584,7 +1584,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: YOU ARE DEAD
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1835,7 +1835,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1969,7 +1969,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: MENU
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2103,7 +2103,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: If you walk through the door, you win
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2237,7 +2237,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Move with W A S D
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2371,7 +2371,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play Again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2505,7 +2505,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: if you collide with the enemies you lose
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2924,7 +2924,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Place bomb with Space
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3257,7 +3257,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3391,7 +3391,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play Again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7544773100911953509, guid: 60fc901e94f29b54384fe6152698f1ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
