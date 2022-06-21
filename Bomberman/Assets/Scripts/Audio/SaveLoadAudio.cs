@@ -4,12 +4,13 @@ public class SaveLoadAudio : MonoBehaviour
 {
     private string volume = "volume";
 
-    void Start()
+    private void OnEnable()
     {
         UInteraction.OnVolumeChange += Save;
+        //UInteraction.OnVolumeSet += Load;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         UInteraction.OnVolumeChange -= Save;
     }
@@ -22,7 +23,7 @@ public class SaveLoadAudio : MonoBehaviour
         }
     }
 
-    private bool Load(out float volumeMusic)
+    private float Load(float volumeMusic)
     {
         volumeMusic = 1f;
 
@@ -37,10 +38,9 @@ public class SaveLoadAudio : MonoBehaviour
                 //deactive toggle
             }
             volumeMusic = PlayerPrefs.GetFloat(volume);
-            return true;
         }
 
-        return false;
+        return volumeMusic;
     }
 
     //int vol;

@@ -11,9 +11,12 @@ public class CollisionPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (GameManager.enemiesLive)
         {
-            playerWin = true;
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                playerWin = true;
+            }
         }
     }
 }

@@ -6,15 +6,20 @@ public class UInteraction : MonoBehaviour
     [SerializeField] private Toggle toggle;
     [SerializeField] private Slider slider;
     public static System.Action<float> OnVolumeChange;
+    public static System.Func<float> OnVolumeSet;
 
-    private void Awake()
+    private void Start()
     {
-        slider.value = 1f;
+        float value = (float)OnVolumeSet?.Invoke();
+        if(value != null)
+        {
+            slider.value = value;
+        }
     }
 
     public void ChangeSlider(float volume)
     {
         slider.value = volume;
-        OnVolumeChange(volume);
+        OnVolumeChange?.Invoke(volume);
     }
 }

@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int count;
+    public int countBlock;
+    public int countEnemies;
     [SerializeField] private GameObject spawneableDoor;
     private bool spawnDoor = false;
+    public static bool enemiesLive = false;
 
     private int rnd = 0;
 
@@ -15,28 +17,39 @@ public class GameManager : MonoBehaviour
     {
         PlayerDie();
         PlayerWin();
+
+        if (countEnemies <= 0)
+        {
+            enemiesLive = true;
+        }
     }
 
     private void OnEnable()
     {
-        ParedDestruible.onBlockSpawn += Spawn;
-        ParedDestruible.onBlockDespawn += Despawn;
+        ParedDestruible.onBlockSpawn += SpawnBlocks;
+        ParedDestruible.onBlockDespawn += DespawnBlocks;
+
+        EnemiMovement.onEnemieSpawn += SpawnEnemies;
+        EnemiMovement.onEnemieDespawn += DespawnEnemies;
     }
 
     private void OnDisable()
     {
-        ParedDestruible.onBlockSpawn -= Spawn;
-        ParedDestruible.onBlockDespawn -= Despawn;
+        ParedDestruible.onBlockSpawn -= SpawnBlocks;
+        ParedDestruible.onBlockDespawn -= DespawnBlocks;
+
+        EnemiMovement.onEnemieSpawn -= SpawnEnemies;
+        EnemiMovement.onEnemieDespawn -= DespawnEnemies;
     }
 
-    private void Spawn()
+    private void SpawnBlocks()
     {
-        count++;
+        countBlock++;
     }
 
-    private void Despawn(Vector3 pos)
+    private void DespawnBlocks(Vector3 pos)
     {
-        count--;
+        countBlock--;
 
         rnd = Random.Range(0, 10);
 
@@ -48,12 +61,22 @@ public class GameManager : MonoBehaviour
                 Instantiate(spawneableDoor, pos, Quaternion.identity);
             }
 
-            if (count <= 0)
+            if (countBlock <= 0)
             {
                 spawnDoor = true;
                 Instantiate(spawneableDoor, pos, Quaternion.identity);
             }
         }
+    }
+
+    private void SpawnEnemies()
+    {
+        countEnemies++;
+    }
+
+    private void DespawnEnemies()
+    {
+        countEnemies--;
     }
 
     private void PlayerDie()

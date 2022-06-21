@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class EnemiMovement : MonoBehaviour, IDestruible
 {
@@ -12,18 +13,23 @@ public class EnemiMovement : MonoBehaviour, IDestruible
 
     public static bool playerDie = false;
 
+    public static Action onEnemieSpawn;
+    public static Action onEnemieDespawn;
+
     // Start is called before the first frame update
     void Start()
     {
         movePoint.parent = null;
         playerDie = false;
+
+        onEnemieSpawn?.Invoke();
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        rnd = Random.Range(0, 4);
+        rnd = UnityEngine.Random.Range(0, 4);
 
         EnemiesMovement();
     }
@@ -89,5 +95,6 @@ public class EnemiMovement : MonoBehaviour, IDestruible
     public void Destruir()
     {
         Destroy(gameObject);
+        onEnemieDespawn?.Invoke();
     }
 }
