@@ -13,11 +13,11 @@ public class Movement : MonoBehaviour
     [SerializeField] private KeyCode inputRight = KeyCode.D;
     [SerializeField] private KeyCode inputLeft = KeyCode.A;
 
-    [SerializeField] private AnimatedSpriteRenderer spriteRendererUp;
-    [SerializeField] private AnimatedSpriteRenderer spriteRendererDown;
-    [SerializeField] private AnimatedSpriteRenderer spriteRendererRight;
-    [SerializeField] private AnimatedSpriteRenderer spriteRendererLeft;
-    [SerializeField] private AnimatedSpriteRenderer spriteRendererDeath;
+    [SerializeField] public AnimatedSpriteRenderer spriteRendererUp;
+    [SerializeField] public AnimatedSpriteRenderer spriteRendererDown;
+    [SerializeField] public AnimatedSpriteRenderer spriteRendererRight;
+    [SerializeField] public AnimatedSpriteRenderer spriteRendererLeft;
+    [SerializeField] public AnimatedSpriteRenderer spriteRendererDeath;
 
     private AnimatedSpriteRenderer activeSpriteRenderer;
 
@@ -75,15 +75,7 @@ public class Movement : MonoBehaviour
         activeSpriteRenderer.idle = direction == Vector2.zero;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Explosion"))
-        {
-            DeathSequence();
-        }
-    }
-
-    private void DeathSequence()
+    public void AnimationsDeath()
     {
         enabled = false;
         GetComponent<BombController>().enabled = false;
@@ -93,14 +85,5 @@ public class Movement : MonoBehaviour
         spriteRendererRight.enabled = false;
         spriteRendererLeft.enabled = false;
         spriteRendererDeath.enabled = true;
-
-        Invoke(nameof(OnDeathSequenceEnded), 1.25f);
-    }
-
-    private void OnDeathSequenceEnded()
-    {
-        gameObject.SetActive(false);
-
-        EnemiMovement.playerDie = true;
     }
 }
