@@ -4,14 +4,18 @@ public class GameManager : MonoBehaviour
 {
     public int countBlock;
     public int countEnemies;
-    [SerializeField] private GameObject spawneableDoor;
-    private bool spawnDoor = false;
     public static bool enemiesLive = false;
 
-    private int rnd = 0;
-
+    [SerializeField] private GameObject spawneableDoor;
     [SerializeField] private Gameover gameoverLose;
     [SerializeField] private Gameover gameoverWin;
+
+    private bool spawnDoor = false;
+    private int rnd = 0;
+
+    private const int maxRandomNumber = 10;
+
+    private const int maxChanceSpawnRandomDoor = 8;
 
     private void Start()
     {
@@ -25,10 +29,7 @@ public class GameManager : MonoBehaviour
         PlayerDie();
         PlayerWin();
 
-        if (countEnemies <= 0)
-        {
-            enemiesLive = true;
-        }
+        IsEnemiesAlive();
     }
 
     private void OnEnable()
@@ -58,11 +59,26 @@ public class GameManager : MonoBehaviour
     {
         countBlock--;
 
-        rnd = Random.Range(0, 10);
+        DoorChanceSpawn(pos);
+    }
+
+    private void SpawnEnemies()
+    {
+        countEnemies++;
+    }
+
+    private void DespawnEnemies()
+    {
+        countEnemies--;
+    }
+
+    private void DoorChanceSpawn(Vector3 pos)
+    {
+        rnd = Random.Range(0, maxRandomNumber);
 
         if (!spawnDoor)
         {
-            if (rnd >= 8)
+            if (rnd >= maxChanceSpawnRandomDoor)
             {
                 spawnDoor = true;
                 Instantiate(spawneableDoor, pos, Quaternion.identity);
@@ -76,14 +92,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void SpawnEnemies()
+    private void IsEnemiesAlive()
     {
-        countEnemies++;
-    }
-
-    private void DespawnEnemies()
-    {
-        countEnemies--;
+        if (countEnemies <= 0)
+        {
+            enemiesLive = true;
+        }
     }
 
     private void PlayerDie()
