@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scene : MonoBehaviour
+public class ChangeScenes : MonoBehaviour
 {
     [SerializeField] private GameObject chargeScene;
 
@@ -12,9 +12,6 @@ public class Scene : MonoBehaviour
 
     public void ChangeScene(string sceneName)
     {
-        CollisionPlayer.playerWin = false;
-        EnemiMovement.playerDie = false;
-        Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
     }
 

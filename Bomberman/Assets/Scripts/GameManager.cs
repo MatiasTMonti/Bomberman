@@ -13,6 +13,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Gameover gameoverLose;
     [SerializeField] private Gameover gameoverWin;
 
+    private void Start()
+    {
+        CollisionPlayer.playerWin = false;
+        EnemiMovement.playerDie = false;
+        Time.timeScale = 1f;
+    }
+
     private void Update()
     {
         PlayerDie();

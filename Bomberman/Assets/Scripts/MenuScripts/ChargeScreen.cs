@@ -9,23 +9,36 @@ public class ChargeScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textProgress;
     [SerializeField] private Slider slider;
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(Load());
-        }
+        StartCoroutine(Load());
     }
 
     private IEnumerator Load()
     {
+        yield return null;
+
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync("PlayScene");
 
-        if (loadOperation.isDone == false)
+        loadOperation.allowSceneActivation = false;
+
+        while (!loadOperation.isDone)
         {
             float progressF = Mathf.Clamp01(loadOperation.progress / .09f);
+
             slider.value = progressF;
+
             textProgress.text = "" + progressF * 100 + "%";
+
+            if (loadOperation.progress >= 0.9f)
+            {
+                textProgress.text = "Press space bar to continue";
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    loadOperation.allowSceneActivation = true;
+                }
+            }
 
             yield return null;
         }

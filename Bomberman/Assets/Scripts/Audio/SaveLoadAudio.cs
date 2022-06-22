@@ -42,10 +42,4 @@ public class SaveLoadAudio : MonoBehaviour
 
         return volumeMusic;
     }
-
-    //int vol;
-    //if(load(out vol)
-    //{
-    //        Debug.log("volumen");
-    //}
 }
