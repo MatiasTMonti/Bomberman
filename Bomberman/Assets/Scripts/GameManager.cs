@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        CollisionPlayer.playerWin = false;
+        CollisionEnemiesWithPlayer.playerWin = false;
         EnemiMovement.playerDie = false;
         Time.timeScale = 1f;
     }
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
 
     private void PlayerWin()
     {
-        if (CollisionPlayer.playerWin)
+        if (CollisionEnemiesWithPlayer.playerWin)
         {
             Time.timeScale = 0f;
             gameoverWin.Setup();

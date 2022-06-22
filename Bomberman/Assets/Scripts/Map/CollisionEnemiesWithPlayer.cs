@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CollisionPlayer : MonoBehaviour
+public class CollisionEnemiesWithPlayer : MonoBehaviour
 {
     public static bool playerWin = false;
 
