@@ -2,44 +2,55 @@ using UnityEngine;
 
 public class SaveLoadAudio : MonoBehaviour
 {
-    private string volume = "volume";
+    private string volumeData = "volume";
 
-    private void OnEnable()
-    {
-        UInteraction.OnVolumeChange += Save;
-        //UInteraction.OnVolumeSet += Load;
-    }
+    //private void OnEnable()
+    //{
+    //    UInteraction.OnVolumeChange += Save;
+    //    UInteraction.OnVolumeSet += Load;
+    //}
 
-    private void OnDisable()
-    {
-        UInteraction.OnVolumeChange -= Save;
-    }
+    //private void OnDisable()
+    //{
+    //    UInteraction.OnVolumeChange -= Save;
+    //    UInteraction.OnVolumeSet -= Load;
+    //}
 
-    private void Save(float volumeMusic)
+
+
+    //private void Save(float volumeMusic)
+    //{
+    //    if (PlayerPrefs.HasKey(volumeData))
+    //    {
+    //        PlayerPrefs.SetFloat(volumeData, volumeMusic);
+    //    }
+    //}
+
+    public void GetGameVolume(float volume)
     {
-        if (PlayerPrefs.HasKey(volume))
+        if (PlayerPrefs.HasKey(volumeData))
         {
-            PlayerPrefs.SetFloat(volume, volumeMusic);
+            PlayerPrefs.SetFloat(volumeData, volume);
         }
     }
 
-    private float Load(float volumeMusic)
-    {
-        volumeMusic = 1f;
+    //private float Load()
+    //{
+    //    float volumeMusic = 1f;
 
-        if (PlayerPrefs.HasKey(volume))
-        {
-            if (PlayerPrefs.GetFloat(volume) > 0.0f)
-            {
-                //active toggle
-            }
-            else
-            {
-                //deactive toggle
-            }
-            volumeMusic = PlayerPrefs.GetFloat(volume);
-        }
+    //    if (PlayerPrefs.HasKey(volumeData))
+    //    {
+    //        if (PlayerPrefs.GetFloat(volumeData) > 0.0f)
+    //        {
+    //            //active toggle
+    //        }
+    //        else
+    //        {
+    //            //deactive toggle
+    //        }
+    //        volumeMusic = PlayerPrefs.GetFloat(volumeData);
+    //    }
 
-        return volumeMusic;
-    }
+    //    return volumeMusic;
+    //}
 }

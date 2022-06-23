@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     private const int maxChanceSpawnRandomDoor = 8;
 
+    [SerializeField] private PlayerLogic playerLogic;
+
     private void Start()
     {
         CollisionEnemiesWithPlayer.playerWin = false;

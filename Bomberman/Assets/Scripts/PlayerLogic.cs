@@ -17,7 +17,7 @@ public class PlayerLogic : MonoBehaviour
         }
     }
 
-    private void DeathSequence()
+    public void DeathSequence()
     {
         player.AnimationsDeath();
 

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    private float musicVolume = 1f;
     private AudioSource audioSource;
 
     private void OnEnable()

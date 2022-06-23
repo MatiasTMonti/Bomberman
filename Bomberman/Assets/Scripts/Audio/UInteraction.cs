@@ -1,24 +1,31 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
 
 public class UInteraction : MonoBehaviour
 {
-    [SerializeField] private Toggle toggle;
     [SerializeField] private Slider slider;
 
-    public static System.Action<float> OnVolumeChange;
-    public static System.Func<float> OnVolumeSet;
+    public static Action<float> OnVolumeChange;
+    //public static Func<float> OnVolumeSet;
+
+    public UnityEvent<float> onApplicationQuit;
 
     private void Start()
     {
-        float value = (float)OnVolumeSet?.Invoke();
-
-        slider.value = value;
+        slider.value = PlayerPrefs.GetFloat("volume");
     }
 
     public void ChangeSlider(float volume)
     {
         slider.value = volume;
         OnVolumeChange?.Invoke(volume);
+    }
+
+    private void OnApplicationQuit()
+    {
+        onApplicationQuit?.Invoke(slider.value);
     }
 }
