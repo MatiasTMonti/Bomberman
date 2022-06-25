@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerLogic : MonoBehaviour
 {
-    private Movement player;
+    private PlayerInput player;
 
     private void Start()
     {
-        player = GetComponent<Movement>();
+        player = GetComponent<PlayerInput>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,6 +28,6 @@ public class PlayerLogic : MonoBehaviour
     {
         gameObject.SetActive(false);
 
-        EnemiMovement.playerDie = true;
+        EnemiesInput.playerDie = true;
     }
 }

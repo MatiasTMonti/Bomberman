@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CollisionEnemiesWithPlayer.playerWin = false;
-        EnemiMovement.playerDie = false;
+        EnemiesInput.playerDie = false;
         Time.timeScale = 1f;
     }
 
@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
         ParedDestruible.onBlockSpawn += SpawnBlocks;
         ParedDestruible.onBlockDespawn += DespawnBlocks;
 
-        EnemiMovement.onEnemieSpawn += SpawnEnemies;
-        EnemiMovement.onEnemieDespawn += DespawnEnemies;
+        EnemiesInput.onEnemieSpawn += SpawnEnemies;
+        EnemiesInput.onEnemieDespawn += DespawnEnemies;
     }
 
     private void OnDisable()
@@ -48,8 +48,8 @@ public class GameManager : MonoBehaviour
         ParedDestruible.onBlockSpawn -= SpawnBlocks;
         ParedDestruible.onBlockDespawn -= DespawnBlocks;
 
-        EnemiMovement.onEnemieSpawn -= SpawnEnemies;
-        EnemiMovement.onEnemieDespawn -= DespawnEnemies;
+        EnemiesInput.onEnemieSpawn -= SpawnEnemies;
+        EnemiesInput.onEnemieDespawn -= DespawnEnemies;
     }
 
     private void SpawnBlocks()
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
 
     private void PlayerDie()
     {
-        if (EnemiMovement.playerDie)
+        if (EnemiesInput.playerDie)
         {
             Time.timeScale = 0f;
             gameoverLose.Setup();

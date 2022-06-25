@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class EnemiMovement : MonoBehaviour, IDestruible
+public class EnemiesInput : MonoBehaviour, IDestruible
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Transform movePoint;
