@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7795966088402638579}
   m_Layer: 8
   m_Name: Enemi
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 64
+  playerLogic: {fileID: 0}
 --- !u!58 &-2739978619968369607
 CircleCollider2D:
   m_ObjectHideFlags: 0

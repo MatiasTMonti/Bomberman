@@ -16,6 +16,8 @@ public class EnemiMovement : MonoBehaviour, IDestruible
     public static Action onEnemieSpawn;
     public static Action onEnemieDespawn;
 
+    [SerializeField] private PlayerLogic playerLogic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,12 +81,6 @@ public class EnemiMovement : MonoBehaviour, IDestruible
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Murio");
-            playerDie = true;
-        }
-
         if (collision.gameObject.CompareTag("Explosion"))
         {
             Destruir();

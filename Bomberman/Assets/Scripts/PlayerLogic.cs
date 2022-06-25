@@ -11,7 +11,7 @@ public class PlayerLogic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Explosion"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Explosion") || collision.gameObject.CompareTag("Enemies"))
         {
             DeathSequence();
         }
