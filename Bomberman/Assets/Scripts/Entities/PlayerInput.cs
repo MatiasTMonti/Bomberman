@@ -18,6 +18,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] public AnimatedSpriteRenderer spriteRendererRight;
     [SerializeField] public AnimatedSpriteRenderer spriteRendererLeft;
     [SerializeField] public AnimatedSpriteRenderer spriteRendererDeath;
+    [SerializeField] public AnimatedSpriteRenderer spriteRendererWin;
 
     private AnimatedSpriteRenderer activeSpriteRenderer;
 
@@ -85,5 +86,17 @@ public class PlayerInput : MonoBehaviour
         spriteRendererRight.enabled = false;
         spriteRendererLeft.enabled = false;
         spriteRendererDeath.enabled = true;
+    }
+
+    public void AnimationWin()
+    {
+        enabled = false;
+        GetComponent<BombController>().enabled = false;
+
+        spriteRendererUp.enabled = false;
+        spriteRendererDown.enabled = false;
+        spriteRendererRight.enabled = false;
+        spriteRendererLeft.enabled = false;
+        spriteRendererWin.enabled = true;
     }
 }

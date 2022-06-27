@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public int countBlock;
     public int countEnemies;
     public static bool enemiesLive = false;
+    public static bool playerWin = false;
 
     [SerializeField] private GameObject spawneableDoor;
     [SerializeField] private Gameover gameoverLose;
@@ -17,11 +18,11 @@ public class GameManager : MonoBehaviour
 
     private const int maxChanceSpawnRandomDoor = 8;
 
-    [SerializeField] private PlayerLogic playerLogic;
+    [SerializeField] private PlayerLogic playerLogic;   
 
     private void Start()
     {
-        CollisionEnemiesWithPlayer.playerWin = false;
+        playerWin = false;
         EnemiesInput.playerDie = false;
         Time.timeScale = 1f;
     }
@@ -113,7 +114,7 @@ public class GameManager : MonoBehaviour
 
     private void PlayerWin()
     {
-        if (CollisionEnemiesWithPlayer.playerWin)
+        if (playerWin)
         {
             Time.timeScale = 0f;
             gameoverWin.Setup();

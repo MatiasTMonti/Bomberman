@@ -8,6 +8,7 @@ TagManager:
   - Destruible
   - Explosion
   - Enemies
+  - Door
   layers:
   - Default
   - TransparentFX

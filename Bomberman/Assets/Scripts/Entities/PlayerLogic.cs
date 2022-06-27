@@ -15,6 +15,14 @@ public class PlayerLogic : MonoBehaviour
         {
             DeathSequence();
         }
+
+        if (GameManager.enemiesLive)
+        {
+            if (collision.gameObject.CompareTag("Door"))
+            {
+                WinSequence();
+            }
+        }
     }
 
     public void DeathSequence()
@@ -29,5 +37,19 @@ public class PlayerLogic : MonoBehaviour
         gameObject.SetActive(false);
 
         EnemiesInput.playerDie = true;
+    }
+
+    public void WinSequence()
+    {
+        player.AnimationWin();
+
+        Invoke(nameof(OnWinSequenceEnded), 1.25f);
+    }
+
+    private void OnWinSequenceEnded()
+    {
+        gameObject.SetActive(false);
+
+        GameManager.playerWin = true;
     }
 }

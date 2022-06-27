@@ -84,7 +84,6 @@ public class EnemiesInput : MonoBehaviour, IDestruible
         if (collision.gameObject.CompareTag("Explosion"))
         {
             Destruir();
-            Debug.Log("Destruido");
         }
     }
 
