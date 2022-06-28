@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5229584972450231118}
   - component: {fileID: 5229584972450231119}
   m_Layer: 0
-  m_Name: Caminable
+  m_Name: WalkableFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 37e0d910c791ad74bbf5354bd2e262db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00aa419e907c15f4b9d7b03b97c202ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
