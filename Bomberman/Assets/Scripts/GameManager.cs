@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public int countEnemies;
     public static bool enemiesLive = false;
     public static bool playerWin = false;
+    public static bool playerDie = false;
 
     [SerializeField] private GameObject spawneableDoor;
     [SerializeField] private Gameover gameoverLose;
@@ -18,12 +19,12 @@ public class GameManager : MonoBehaviour
 
     private const int maxChanceSpawnRandomDoor = 8;
 
-    [SerializeField] private PlayerLogic playerLogic;   
-
     private void Start()
     {
+        Debug.Log("Llamarse");
+        enemiesLive = false;
         playerWin = false;
-        EnemiesInput.playerDie = false;
+        playerDie = false;
         Time.timeScale = 1f;
     }
 
@@ -31,8 +32,6 @@ public class GameManager : MonoBehaviour
     {
         PlayerDie();
         PlayerWin();
-
-        IsEnemiesAlive();
     }
 
     private void OnEnable()
@@ -68,11 +67,15 @@ public class GameManager : MonoBehaviour
     private void SpawnEnemies()
     {
         countEnemies++;
+        Debug.Log("SpawnEnemies " + countEnemies);
     }
 
     private void DespawnEnemies()
     {
         countEnemies--;
+        Debug.Log("DespawnEnemies " + countEnemies);
+
+        IsEnemiesAlive();
     }
 
     private void DoorChanceSpawn(Vector3 pos)
@@ -99,13 +102,14 @@ public class GameManager : MonoBehaviour
     {
         if (countEnemies <= 0)
         {
+            Debug.Log("IsEnemisLive");
             enemiesLive = true;
         }
     }
 
     private void PlayerDie()
     {
-        if (EnemiesInput.playerDie)
+        if (playerDie)
         {
             Time.timeScale = 0f;
             gameoverLose.Setup();

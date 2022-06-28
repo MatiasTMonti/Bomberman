@@ -36,7 +36,7 @@ public class PlayerLogic : MonoBehaviour
     {
         gameObject.SetActive(false);
 
-        EnemiesInput.playerDie = true;
+        GameManager.playerDie = true;
     }
 
     public void WinSequence()

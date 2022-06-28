@@ -11,23 +11,16 @@ public class EnemiesInput : MonoBehaviour, IDestruible
 
     [SerializeField] private LayerMask layer;
 
-    public static bool playerDie = false;
-
     public static Action onEnemieSpawn;
     public static Action onEnemieDespawn;
 
-    [SerializeField] private PlayerLogic playerLogic;
-
-    // Start is called before the first frame update
     void Start()
     {
         movePoint.parent = null;
-        playerDie = false;
 
         onEnemieSpawn?.Invoke();
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;

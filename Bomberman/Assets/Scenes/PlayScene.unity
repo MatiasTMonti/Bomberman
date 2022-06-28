@@ -2866,7 +2866,7 @@ MonoBehaviour:
   spawneableDoor: {fileID: 4288571985947025638, guid: b53b8f929d3ef074f865808bc986e496, type: 3}
   gameoverLose: {fileID: 882277832}
   gameoverWin: {fileID: 876713292}
-  playerLogic: {fileID: 0}
+  playerLogic: {fileID: 6415013635883480108, guid: 10a1bfca027952040ab46e07608cf21c, type: 3}
 --- !u!1 &1580992448
 GameObject:
   m_ObjectHideFlags: 0
