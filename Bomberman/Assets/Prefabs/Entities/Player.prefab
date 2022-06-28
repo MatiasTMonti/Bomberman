@@ -143,7 +143,7 @@ MonoBehaviour:
   bombPrefab: {fileID: 3342518550065256751, guid: 45bdec14899cc714690f329e42df19fb, type: 3}
   inputKey: 32
   bombFuseTime: 3
-  bombAmount: 1
+  bombAmount: 2
   explosionPrefab: {fileID: 3889570302966938416, guid: 1d4ab1f5341618e4180beb6109d3820b, type: 3}
   explosionLayerMask:
     serializedVersion: 2

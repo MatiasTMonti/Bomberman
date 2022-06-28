@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2257131630716301827}
   - component: {fileID: 2257131630716301824}
   - component: {fileID: 3505394238105392535}
-  - component: {fileID: -8556817320433787372}
   - component: {fileID: 461071434}
   m_Layer: 0
   m_Name: DestructiblePrefab
@@ -126,27 +125,6 @@ MonoBehaviour:
   - {fileID: 6190578581804398490, guid: 75de8416f46372449a91a2436e06dc9b, type: 3}
   - {fileID: 4299867444184371568, guid: 8f36f8d297236b04b97cf212e753329f, type: 3}
   - {fileID: 5420942911059867245, guid: 45eebe85d95d5dd4999306d3d6a9ed4b, type: 3}
---- !u!50 &-8556817320433787372
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2257131630716301828}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &461071434
 BoxCollider2D:
   m_ObjectHideFlags: 0

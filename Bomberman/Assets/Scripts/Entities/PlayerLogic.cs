@@ -16,7 +16,7 @@ public class PlayerLogic : MonoBehaviour
             DeathSequence();
         }
 
-        if (GameManager.enemiesLive)
+        if (GameManager.isEnemiesAlive)
         {
             if (collision.gameObject.CompareTag("Door"))
             {
@@ -36,7 +36,7 @@ public class PlayerLogic : MonoBehaviour
     {
         gameObject.SetActive(false);
 
-        GameManager.playerDie = true;
+        GameManager.isPlayerDie = true;
     }
 
     public void WinSequence()
@@ -50,6 +50,6 @@ public class PlayerLogic : MonoBehaviour
     {
         gameObject.SetActive(false);
 
-        GameManager.playerWin = true;
+        GameManager.isPlayerWin = true;
     }
 }

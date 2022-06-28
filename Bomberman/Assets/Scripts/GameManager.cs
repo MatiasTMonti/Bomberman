@@ -4,9 +4,9 @@ public class GameManager : MonoBehaviour
 {
     public int countBlock;
     public int countEnemies;
-    public static bool enemiesLive = false;
-    public static bool playerWin = false;
-    public static bool playerDie = false;
+    public static bool isEnemiesAlive = false;
+    public static bool isPlayerWin = false;
+    public static bool isPlayerDie = false;
 
     [SerializeField] private GameObject spawneableDoor;
     [SerializeField] private Gameover gameoverLose;
@@ -22,9 +22,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Debug.Log("Llamarse");
-        enemiesLive = false;
-        playerWin = false;
-        playerDie = false;
+        isEnemiesAlive = false;
+        isPlayerWin = false;
+        isPlayerDie = false;
         Time.timeScale = 1f;
     }
 
@@ -103,13 +103,13 @@ public class GameManager : MonoBehaviour
         if (countEnemies <= 0)
         {
             Debug.Log("IsEnemisLive");
-            enemiesLive = true;
+            isEnemiesAlive = true;
         }
     }
 
     private void PlayerDie()
     {
-        if (playerDie)
+        if (isPlayerDie)
         {
             Time.timeScale = 0f;
             gameoverLose.Setup();
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
 
     private void PlayerWin()
     {
-        if (playerWin)
+        if (isPlayerWin)
         {
             Time.timeScale = 0f;
             gameoverWin.Setup();
