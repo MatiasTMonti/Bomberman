@@ -12,31 +12,45 @@ public class TutorialManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (popUp[popUpIndex] == popUp[0] && timer >= 1)
-        {
-            popUp[0].SetActive(true);
-            popUpIndex++;
-        }
-        else if (popUp[popUpIndex] == popUp[1] && timer >= 4)
-        {
-            popUp[0].SetActive(false);
-            popUp[1].SetActive(true);
-            popUpIndex++;
-        }
-        else if (popUp[popUpIndex] == popUp[2] && timer >= 8)
-        {
-            popUp[1].SetActive(false);
-            popUp[2].SetActive(true);
-            popUpIndex++;
-        }
-        else if (popUp[popUpIndex] == popUp[3] && timer >= 12)
-        {
-            popUp[2].SetActive(false);
-            popUp[3].SetActive(true);
+        //if (popUp[popUpIndex] == popUp[0] && timer >= 1)
+        //{
+        //    popUp[0].SetActive(true);
+        //    popUpIndex++;
+        //}
+        //else if (popUp[popUpIndex] == popUp[1] && timer >= 4)
+        //{
+        //    popUp[0].SetActive(false);
+        //    popUp[1].SetActive(true);
+        //    popUpIndex++;
+        //}
+        //else if (popUp[popUpIndex] == popUp[2] && timer >= 8)
+        //{
+        //    popUp[1].SetActive(false);
+        //    popUp[2].SetActive(true);
+        //    popUpIndex++;
+        //}
+        //else if (popUp[popUpIndex] == popUp[3] && timer >= 12)
+        //{
+        //    popUp[2].SetActive(false);
+        //    popUp[3].SetActive(true);
 
-            if (timer > 16)
+        //    if (timer > 16)
+        //    {
+        //        popUp[3].SetActive(false);
+        //    }
+        //}
+
+        for (int i = 0; i < popUp.Length; i++)
+        {
+            if (popUp[popUpIndex] == popUp[i] && timer >= 0 && timer <= 4)
             {
-                popUp[3].SetActive(false);
+                popUp[i].SetActive(true);
+            }
+            else if (i > 0 && timer >= 5)
+            {
+                popUp[i - 1].SetActive(false);
+                popUpIndex++;
+                timer = 0;
             }
         }
     }
