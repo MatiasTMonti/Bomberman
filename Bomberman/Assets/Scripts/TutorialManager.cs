@@ -8,6 +8,8 @@ public class TutorialManager : MonoBehaviour
 
     private float timer = 0f;
 
+    private const float maxTimbetweenPopup = 4f;
+
     private void Update()
     {
         timer += Time.deltaTime;
@@ -39,17 +41,22 @@ public class TutorialManager : MonoBehaviour
         //        popUp[3].SetActive(false);
         //    }
         //}
-
-        for (int i = 0; i < popUp.Length; i++)
-        {
-            if (popUp[popUpIndex] == popUp[i] && timer >= 0 && timer <= 4)
+        
+        for (int i = 0; i < popUp.Length - 1; i++)
+        {        
+            if (popUpIndex < popUp.Length && popUp[popUpIndex] == popUp[i])
             {
                 popUp[i].SetActive(true);
             }
-            else if (i > 0 && timer >= 5)
+
+            if (timer >= maxTimbetweenPopup)
             {
-                popUp[i - 1].SetActive(false);
                 popUpIndex++;
+            }
+
+            if (popUpIndex < popUp.Length && popUpIndex > 0 && timer >= maxTimbetweenPopup)
+            {
+                popUp[popUpIndex - 1].SetActive(false);
                 timer = 0;
             }
         }
