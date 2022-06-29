@@ -21,6 +21,13 @@ public class BombController : MonoBehaviour
     [Header("Destructible")]
     [SerializeField] private Destructible destructiblePrefab;
 
+    private Shake shake;
+
+    private void Start()
+    {
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+    }
+
     private void OnEnable()
     {
         bombRemaining = bombAmount;
@@ -69,6 +76,7 @@ public class BombController : MonoBehaviour
 
         //Destruyo la bomba y sumo 1 mas
         Destroy(bomb);
+        shake.CamShake();
         bombRemaining++;
     }
 

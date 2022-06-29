@@ -9,6 +9,7 @@ TagManager:
   - Explosion
   - Enemies
   - Door
+  - ScreenShake
   layers:
   - Default
   - TransparentFX
