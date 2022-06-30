@@ -971,6 +971,7 @@ MonoBehaviour:
   destruible: {fileID: 1891838408700709982, guid: 4a91b726922a4004bab445f06ef03a7f, type: 3}
   player: {fileID: 1783999215277594353, guid: 10a1bfca027952040ab46e07608cf21c, type: 3}
   enemi: {fileID: 7198892216718414983, guid: c16afc4c4a7dff146b9ebeaaf3f260d9, type: 3}
+  mapAsset: {fileID: 4900000, guid: d3b53a8a03ba1834f8830813475cadef, type: 3}
 --- !u!1 &407952116
 GameObject:
   m_ObjectHideFlags: 0

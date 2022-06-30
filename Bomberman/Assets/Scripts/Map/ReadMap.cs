@@ -11,19 +11,31 @@ public class ReadMap : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject enemi;
 
+    [SerializeField] private TextAsset mapAsset;
+    string path;
+
     private Camera cam;
 
     private int offset = 0;
 
     private void Start()
     {
+        path = Application.persistentDataPath + "/Assets/Maps";
         cam = Camera.main;
+        CreateFileMap();
         ReadFileMap();
+
+    }
+
+    public void CreateFileMap()
+    {
+        Directory.CreateDirectory(path);
+        File.WriteAllText(path + "/Map.txt", mapAsset.ToString());
     }
 
     public void ReadFileMap()
     {
-        string filePath = @"Assets/Maps/Map.txt";
+        string filePath = path + "/Map.txt";
 
         List<string> lines = new List<string>();
         lines = File.ReadAllLines(filePath).ToList();
