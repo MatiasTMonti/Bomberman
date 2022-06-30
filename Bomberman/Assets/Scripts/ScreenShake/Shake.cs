@@ -8,6 +8,6 @@ public class Shake : MonoBehaviour
 
     public void CamShake()
     {
-        camAnim.SetTrigger("Shake");
+        //camAnim.SetTrigger("Shake");
     }
 }

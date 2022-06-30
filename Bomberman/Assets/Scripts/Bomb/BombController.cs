@@ -25,7 +25,7 @@ public class BombController : MonoBehaviour
 
     private void Start()
     {
-        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+        //shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
     }
 
     private void OnEnable()
@@ -76,7 +76,7 @@ public class BombController : MonoBehaviour
 
         //Destruyo la bomba y sumo 1 mas
         Destroy(bomb);
-        shake.CamShake();
+        //shake.CamShake();
         bombRemaining++;
     }
 
