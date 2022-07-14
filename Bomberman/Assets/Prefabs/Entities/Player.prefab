@@ -110,12 +110,6 @@ MonoBehaviour:
   inputDown: 115
   inputRight: 100
   inputLeft: 97
-  spriteRendererUp: {fileID: 7650717762882552969}
-  spriteRendererDown: {fileID: 5865150037365160931}
-  spriteRendererRight: {fileID: 1590043441778970719}
-  spriteRendererLeft: {fileID: 8106598574717225584}
-  spriteRendererDeath: {fileID: 6210051427963699370}
-  spriteRendererWin: {fileID: 436759045174007344}
 --- !u!114 &6415013635883480108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,13 +138,9 @@ MonoBehaviour:
   inputKey: 32
   bombFuseTime: 3
   bombAmount: 2
-  explosionPrefab: {fileID: 3889570302966938416, guid: 1d4ab1f5341618e4180beb6109d3820b, type: 3}
-  explosionLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  explosionDuration: 1
-  explosionRadius: 1
+  bombRemaining: 0
   destructiblePrefab: {fileID: 3505394238105392535, guid: 69df98317e570bf4191450ca13b6b023, type: 3}
+  bombManager: {fileID: -3293879472753178989, guid: 45bdec14899cc714690f329e42df19fb, type: 3}
 --- !u!50 &1783999215277594354
 Rigidbody2D:
   serializedVersion: 4
