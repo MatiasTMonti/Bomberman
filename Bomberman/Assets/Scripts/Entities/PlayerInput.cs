@@ -13,19 +13,13 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private KeyCode inputRight = KeyCode.D;
     [SerializeField] private KeyCode inputLeft = KeyCode.A;
 
-    [SerializeField] public AnimatedSpriteRenderer spriteRendererUp;
-    [SerializeField] public AnimatedSpriteRenderer spriteRendererDown;
-    [SerializeField] public AnimatedSpriteRenderer spriteRendererRight;
-    [SerializeField] public AnimatedSpriteRenderer spriteRendererLeft;
-    [SerializeField] public AnimatedSpriteRenderer spriteRendererDeath;
-    [SerializeField] public AnimatedSpriteRenderer spriteRendererWin;
-
-    private AnimatedSpriteRenderer activeSpriteRenderer;
+    private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        activeSpriteRenderer = spriteRendererDown;
+        animator = GetComponent<Animator>();
+        //activeSpriteRenderer = spriteRendererDown;
     }
 
     private void Update()
@@ -34,23 +28,31 @@ public class PlayerInput : MonoBehaviour
         {
             if (Input.GetKey(inputUp))
             {
-                SetDirection(Vector2.up, spriteRendererUp);
+                animator.SetFloat("SpeedUp", (float)inputUp);
+                //SetDirection(Vector2.up, spriteRendererUp);
             }
             else if (Input.GetKey(inputDown))
             {
-                SetDirection(Vector2.down, spriteRendererDown);
+                animator.SetFloat("SpeedDown", (float)inputDown);
+                //SetDirection(Vector2.down, spriteRendererDown);
             }
             else if (Input.GetKey(inputRight))
             {
-                SetDirection(Vector2.right, spriteRendererRight);
+                animator.SetFloat("SpeedRight", (float)inputRight);
+                //SetDirection(Vector2.right, spriteRendererRight);
             }
             else if (Input.GetKey(inputLeft))
             {
-                SetDirection(Vector2.left, spriteRendererLeft);
+                animator.SetFloat("SpeedLeft", (float)inputLeft);
+                //SetDirection(Vector2.left, spriteRendererLeft);
             }
             else
             {
-                SetDirection(Vector2.zero, activeSpriteRenderer);
+                animator.SetFloat("SpeedUp", 0);
+                animator.SetFloat("SpeedDown", 0);
+                animator.SetFloat("SpeedRight", 0);
+                animator.SetFloat("SpeedLeft", 0);
+                //SetDirection(Vector2.zero, activeSpriteRenderer);
             }
         }
     }
@@ -61,42 +63,5 @@ public class PlayerInput : MonoBehaviour
         Vector2 translation = direction * speed * Time.fixedDeltaTime;
 
         rb.MovePosition(position + translation);
-    }
-
-    private void SetDirection(Vector2 newDirection, AnimatedSpriteRenderer spriteRenderer)
-    {
-        direction = newDirection;
-
-        spriteRendererUp.enabled = spriteRenderer == spriteRendererUp;
-        spriteRendererDown.enabled = spriteRenderer == spriteRendererDown;
-        spriteRendererRight.enabled = spriteRenderer == spriteRendererRight;
-        spriteRendererLeft.enabled = spriteRenderer == spriteRendererLeft;
-
-        activeSpriteRenderer = spriteRenderer;
-        activeSpriteRenderer.idle = direction == Vector2.zero;
-    }
-
-    public void AnimationsDeath()
-    {
-        enabled = false;
-        GetComponent<BombController>().enabled = false;
-
-        spriteRendererUp.enabled = false;
-        spriteRendererDown.enabled = false;
-        spriteRendererRight.enabled = false;
-        spriteRendererLeft.enabled = false;
-        spriteRendererDeath.enabled = true;
-    }
-
-    public void AnimationWin()
-    {
-        enabled = false;
-        GetComponent<BombController>().enabled = false;
-
-        spriteRendererUp.enabled = false;
-        spriteRendererDown.enabled = false;
-        spriteRendererRight.enabled = false;
-        spriteRendererLeft.enabled = false;
-        spriteRendererWin.enabled = true;
     }
 }

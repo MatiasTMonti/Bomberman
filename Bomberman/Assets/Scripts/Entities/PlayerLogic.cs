@@ -27,7 +27,7 @@ public class PlayerLogic : MonoBehaviour
 
     public void DeathSequence()
     {
-        player.AnimationsDeath();
+        //player.AnimationsDeath();
 
         Invoke(nameof(OnDeathSequenceEnded), 1.25f);
     }
@@ -41,7 +41,7 @@ public class PlayerLogic : MonoBehaviour
 
     public void WinSequence()
     {
-        player.AnimationWin();
+        //player.AnimationWin();
 
         Invoke(nameof(OnWinSequenceEnded), 1.25f);
     }
