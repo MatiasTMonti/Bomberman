@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using System;
 
 public class ReadMap : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class ReadMap : MonoBehaviour
 
         List<string> lines = new List<string>();
         lines = File.ReadAllLines(filePath).ToList();
+
+        lines.Reverse();
 
         foreach (string line in lines)
         {
