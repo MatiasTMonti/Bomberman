@@ -18,7 +18,6 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        MuteAudio();
         audioSource.volume = musicVolume;
     }
 
@@ -38,9 +37,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void MuteAudio()
+    public void MuteAudio(bool toggle)
     {
-        if (toggle.isOn)
+        if (toggle)
         {
             AudioListener.volume = audioSource.volume;
             PlayerPrefs.SetFloat(volume, audioSource.volume);
