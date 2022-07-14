@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BombManager : MonoBehaviour
+public class ExplosionManager : MonoBehaviour
 {
 
     [Header("Explosion")]
@@ -10,6 +10,9 @@ public class BombManager : MonoBehaviour
     public int explosionRadius = 1;
 
     [SerializeField] private BombController bombController;
+
+    [Header("Destructible")]
+    [SerializeField] private Destructible destructiblePrefab;
 
     public void Explode(Vector2 position, Vector2 direction, int length)
     {
@@ -36,19 +39,10 @@ public class BombManager : MonoBehaviour
         Explode(position, direction, length - 1); //Sin esto se rompe la explosion, cuando upgradeo
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //Muevo la bomba una vez que salgo
-        if (collision.gameObject.CompareTag("Bomb"))
-        {
-            collision.isTrigger = false;
-        }
-    }
-
     //Instancio el destructor de la bomba
     private void ClearDestructible(Vector2 pos)
     {
-        Instantiate(bombController.destructiblePrefab, pos, Quaternion.identity);
+        Instantiate(destructiblePrefab, pos, Quaternion.identity);
     }
 
     //Para no romper el upgrade

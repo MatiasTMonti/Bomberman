@@ -12,17 +12,7 @@ public class BombController : MonoBehaviour
 
     public int bombRemaining;
 
-    [Header("Destructible")]
-    public Destructible destructiblePrefab;
-
-    [SerializeField] private BombManager bombManager;
-
-    private Shake shake;
-
-    private void Start()
-    {
-        //shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
-    }
+    [SerializeField] private ExplosionManager explosionManager;
 
     private void OnEnable()
     {
@@ -60,19 +50,27 @@ public class BombController : MonoBehaviour
         position.y = Mathf.Round(position.y);
 
         //Instancio la explosion
-        Explosion explosion = Instantiate(bombManager.explosionPrefab, position, Quaternion.identity);
-        explosion.SetActiveRenderer(explosion.start);   //Arranca la primera animacion
-        explosion.DestroyAfter(bombManager.explosionDuration);      //Despues de ciertos segundos se destruye la explosion
+        Explosion explosion = Instantiate(explosionManager.explosionPrefab, position, Quaternion.identity);
+        explosion.SetActiveRenderer(explosion.start);               //Arranca la primera animacion
+        explosion.DestroyAfter(explosionManager.explosionDuration);      //Despues de ciertos segundos se destruye la explosion
 
         //Indico hacia donde explota
-        bombManager.Explode(position, Vector2.up, bombManager.explosionRadius);
-        bombManager.Explode(position, Vector2.down, bombManager.explosionRadius);
-        bombManager.Explode(position, Vector2.right, bombManager.explosionRadius);
-        bombManager.Explode(position, Vector2.left, bombManager.explosionRadius);
+        explosionManager.Explode(position, Vector2.up, explosionManager.explosionRadius);
+        explosionManager.Explode(position, Vector2.down, explosionManager.explosionRadius);
+        explosionManager.Explode(position, Vector2.right, explosionManager.explosionRadius);
+        explosionManager.Explode(position, Vector2.left, explosionManager.explosionRadius);
 
         //Destruyo la bomba y sumo 1 mas
         Destroy(bomb);
-        //shake.CamShake();
         bombRemaining++;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //Muevo la bomba una vez que salgo
+        if (collision.gameObject.CompareTag("Bomb"))
+        {
+            collision.isTrigger = false;
+        }
     }
 }
